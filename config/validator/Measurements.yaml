@@ -1,0 +1,37 @@
+App\Entity\Measurements:
+    properties:
+        temperature:
+            - NotBlank:
+                groups: ["create", "edit"]
+            - Type:
+                type: "numeric"
+                groups: ["create", "edit"]
+            - Range:
+                min: -50
+                max: 50
+                notInRangeMessage: "Temperature must be between -50 and 50."
+                groups: ["create", "edit"]
+
+        humidity:
+            - NotBlank:
+                groups: ["create", "edit"]
+            - Type:
+                type: "numeric"
+                groups: ["create", "edit"]
+            - Range:
+                min: 0
+                max: 100
+                notInRangeMessage: "Humidity must be between 0 and 100."
+                groups: ["create", "edit"]
+
+        pressure:
+            - NotBlank:
+                groups: ["create", "edit"]
+            - Type:
+                type: "numeric"
+                groups: ["create", "edit"]
+            - Range:
+                min: 800
+                max: 1100
+                notInRangeMessage: "Pressure must be between 800 and 1100 hPa."
+                groups: ["create", "edit"]

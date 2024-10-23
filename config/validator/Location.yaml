@@ -1,0 +1,31 @@
+App\Entity\Location:
+    properties:
+        city:
+            - NotBlank:
+                groups: ["create", "edit"]
+            - Length:
+                max: 255
+                groups: ["create", "edit"]
+
+        country:
+            - NotBlank:
+                groups: ["create", "edit"]
+            - Choice:
+                choices: ['PL', 'DE', 'FR']
+                groups: ["create", "edit"]
+
+        latitude:
+            - NotBlank:
+                groups: ["create", "edit"]
+            - Regex:
+                pattern: "/^-?\\d+(\\.\\d+)?$/"
+                message: "Latitude must be a valid number."
+                groups: ["create", "edit"]
+
+        longitude:
+            - NotBlank:
+                groups: ["create", "edit"]
+            - Regex:
+                pattern: "/^-?\\d+(\\.\\d+)?$/"
+                message: "Longitude must be a valid number."
+                groups: ["create", "edit"]
